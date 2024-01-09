@@ -15,6 +15,15 @@ class SentenceTokenizer {
     }
     
     func tokenize(sentence: String, language: String = "en") -> [String] {
-        return []
-    }
+        
+        let keywords = tokens[language]
+        
+        var sentences = [sentence]
+        for keyword in keywords! {
+            sentences = sentences
+                .flatMap { $0.components(separatedBy: " \(keyword) ") }
+                .map { $0.trimmingCharacters(in: .whitespaces) }
+        }
+
+        return sentences.filter { !$0.isEmpty }}
 }
