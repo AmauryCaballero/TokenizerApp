@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum TokenizerError: Error {
+    case unsupportedLanguage
+}
+
 class SentenceTokenizer {
     private let tokens: [String: [String]]
     
@@ -14,16 +18,19 @@ class SentenceTokenizer {
         self.tokens = tokens
     }
     
-    func tokenize(sentence: String, language: String = "en") -> [String] {
+    func tokenize(sentence: String, language: String = "en") throws -> [String] {
         
-        let keywords = tokens[language]
+        guard let keywords = tokens[language] else {
+            throw TokenizerError.unsupportedLanguage
+        }
         
         var sentences = [sentence]
-        for keyword in keywords! {
+        for keyword in keywords {
             sentences = sentences
                 .flatMap { $0.components(separatedBy: " \(keyword) ") }
                 .map { $0.trimmingCharacters(in: .whitespaces) }
         }
-
-        return sentences.filter { !$0.isEmpty }}
+        
+        return sentences.filter { !$0.isEmpty }
+    }
 }
