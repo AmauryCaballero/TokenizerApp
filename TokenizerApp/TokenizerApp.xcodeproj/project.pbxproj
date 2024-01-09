@@ -99,13 +99,20 @@
 		634673C72B4CD277006AD372 /* TokenizerApp */ = {
 			isa = PBXGroup;
 			children = (
+				634673D62B4CD278006AD372 /* Info.plist */,
+				634673FE2B4CF562006AD372 /* Supporting Files */,
+				634673FD2B4CF54F006AD372 /* Resources */,
+				634673FC2B4CF53F006AD372 /* Utilities */,
+				634673FB2B4CF536006AD372 /* Services */,
+				634673FA2B4CF52E006AD372 /* ViewModel */,
+				634673F92B4CF523006AD372 /* Model */,
+				634673F82B4CF51B006AD372 /* Application */,
 				634673C82B4CD277006AD372 /* AppDelegate.swift */,
 				634673CA2B4CD277006AD372 /* SceneDelegate.swift */,
 				634673CC2B4CD277006AD372 /* ViewController.swift */,
 				634673CE2B4CD277006AD372 /* Main.storyboard */,
 				634673D12B4CD278006AD372 /* Assets.xcassets */,
 				634673D32B4CD278006AD372 /* LaunchScreen.storyboard */,
-				634673D62B4CD278006AD372 /* Info.plist */,
 			);
 			path = TokenizerApp;
 			sourceTree = "<group>";
@@ -125,6 +132,55 @@
 				634673EB2B4CD278006AD372 /* TokenizerAppUITestsLaunchTests.swift */,
 			);
 			path = TokenizerAppUITests;
+			sourceTree = "<group>";
+		};
+		634673F82B4CF51B006AD372 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		634673F92B4CF523006AD372 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		634673FA2B4CF52E006AD372 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		634673FB2B4CF536006AD372 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		634673FC2B4CF53F006AD372 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		634673FD2B4CF54F006AD372 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		634673FE2B4CF562006AD372 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
