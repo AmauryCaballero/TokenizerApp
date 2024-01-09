@@ -24,13 +24,20 @@ class SentenceTokenizerTests: XCTestCase {
     
     func testTokenizerSplitsEnglishSentence() throws {
         let sentence = "Hi my name is Oxus and I am here to start the project"
-        let tokens = tokenizer.tokenize(sentence: sentence, language: "en")
+        let tokens = try tokenizer.tokenize(sentence: sentence, language: "en")
         XCTAssertEqual(tokens, ["Hi my name is Oxus", "I am here to start the project"], "The tokenizer should split the sentence on 'and' for English.")
     }
 
     func testTokenizerSplitsSpanishSentence() throws {
         let sentence = "Hola mi nombre es Oxus y estoy aquí para empezar el proyecto"
-        let tokens = tokenizer.tokenize(sentence: sentence, language: "es")
+        let tokens = try tokenizer.tokenize(sentence: sentence, language: "es")
         XCTAssertEqual(tokens, ["Hola mi nombre es Oxus", "estoy aquí para empezar el proyecto"], "The tokenizer should split the sentence on 'y' for Spanish.")
+    }
+    
+    func testTokenizerThrowsForUnsupportedLanguage() {
+        let sentence = "Hi my name is Oxus and I am here to start the project"
+        XCTAssertThrowsError(try tokenizer.tokenize(sentence: sentence, language: "fr")) { error in
+            XCTAssertEqual(error as? TokenizerError, TokenizerError.unsupportedLanguage, "The tokenizer should throw an unsupportedLanguage error for French.")
+        }
     }
 }
