@@ -18,5 +18,11 @@ class TokenizerViewModel {
     }
     
     func tokenize(sentence: String, language: String) {
+        do {
+            let tokenizedSentences = try tokenizer.tokenize(sentence: sentence, language: language)
+            updateView?(tokenizedSentences)
+        } catch {
+            updateView?(["Error: \(error.localizedDescription)"])
+        }
     }
 }
