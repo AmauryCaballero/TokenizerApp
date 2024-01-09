@@ -28,11 +28,26 @@ class TokenizerViewController: UIViewController {
     // UI Elements
     private let sentenceTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
+        textField.layer.cornerRadius = 20
+        textField.layer.masksToBounds = true
+        textField.layer.borderWidth = 1.5
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.backgroundColor = UIColor.white
         textField.placeholder = "Enter a sentence"
+        textField.heightAnchor.constraint(equalToConstant: 40).isActive = true // Set the height of the text field
+        
+        // Centrado vertical del contenido y el placeholder
+        textField.contentVerticalAlignment = .center
+
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        leftView.backgroundColor = .clear
+        textField.leftView = leftView
+        textField.leftViewMode = .always
         return textField
     }()
-    
+
+
     private let languageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Language: 🇺🇸", for: .normal) // Default language
@@ -71,12 +86,16 @@ class TokenizerViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        sentenceTextField.delegate = self
         setupUI()
         setupKeyboardNotifications()
         bindViewModel()
     }
     
     // MARK: - Setup
+    // Declare the sentencesTextViewHeightConstraint as an instance variable in your view controller
+    var sentencesTextViewHeightConstraint: NSLayoutConstraint!
+
     private func setupUI() {
         view.backgroundColor = UIColor.white
 
@@ -84,38 +103,48 @@ class TokenizerViewController: UIViewController {
         stackView.addArrangedSubview(sentenceTextField)
         stackView.addArrangedSubview(languageButton)
 
-        // Add stack view and other subviews
+        // Add stack view and other subviews to the view
         view.addSubview(stackView)
         view.addSubview(tokenizeButton)
-        view.addSubview(sentencesTextView) // Add it to the view, but it's hidden initially
+        view.addSubview(sentencesTextView)
 
-        // Set up constraints
+        // Disable autoresizing masks for Auto Layout
         stackView.translatesAutoresizingMaskIntoConstraints = false
         sentenceTextField.translatesAutoresizingMaskIntoConstraints = false
         tokenizeButton.translatesAutoresizingMaskIntoConstraints = false
         sentencesTextView.translatesAutoresizingMaskIntoConstraints = false
 
+        // Set width constraint for languageButton
+        let languageButtonWidthConstraint = languageButton.widthAnchor.constraint(equalToConstant: 100) // Adjust this value as needed
+
+        // Set maximum width constraint for sentenceTextField
+        let sentenceTextFieldMaxWidthConstraint = sentenceTextField.widthAnchor.constraint(lessThanOrEqualTo: stackView.widthAnchor, multiplier: 0.7) // Adjust the multiplier as needed
+
+        // Set constraints
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            languageButtonWidthConstraint,
+            sentenceTextFieldMaxWidthConstraint,
 
             tokenizeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tokenizeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
             tokenizeButton.heightAnchor.constraint(equalToConstant: 65),
             tokenizeButton.widthAnchor.constraint(equalToConstant: 65),
 
-            // sentencesTextView constraints initially offscreen or 0 height
             sentencesTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             sentencesTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             sentencesTextView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
-            // Initially set the height to 0 to hide the textView
-            sentencesTextView.heightAnchor.constraint(equalToConstant: 0)
+            sentencesTextView.heightAnchor.constraint(equalToConstant: 200) // Initial height, adjust as needed
         ])
 
+        // Button actions
         languageButton.addTarget(self, action: #selector(showLanguagePicker), for: .touchUpInside)
         tokenizeButton.addTarget(self, action: #selector(tokenizeButtonTapped), for: .touchUpInside)
-        sentencesTextView.isHidden = true // Hide the textView initially
+
+        // Initially hide the textView
+        sentencesTextView.isHidden = true
     }
 
     private func bindViewModel() {
