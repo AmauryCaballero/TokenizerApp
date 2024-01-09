@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		634673C92B4CD277006AD372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673C82B4CD277006AD372 /* AppDelegate.swift */; };
 		634673CB2B4CD277006AD372 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673CA2B4CD277006AD372 /* SceneDelegate.swift */; };
-		634673CD2B4CD277006AD372 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673CC2B4CD277006AD372 /* ViewController.swift */; };
+		634673CD2B4CD277006AD372 /* TokenizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673CC2B4CD277006AD372 /* TokenizerViewController.swift */; };
 		634673D02B4CD277006AD372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634673CE2B4CD277006AD372 /* Main.storyboard */; };
 		634673D22B4CD278006AD372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634673D12B4CD278006AD372 /* Assets.xcassets */; };
 		634673D52B4CD278006AD372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634673D32B4CD278006AD372 /* LaunchScreen.storyboard */; };
 		634673E02B4CD278006AD372 /* TokenizerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673DF2B4CD278006AD372 /* TokenizerAppTests.swift */; };
 		634673EA2B4CD278006AD372 /* TokenizerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673E92B4CD278006AD372 /* TokenizerAppUITests.swift */; };
 		634673EC2B4CD278006AD372 /* TokenizerAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634673EB2B4CD278006AD372 /* TokenizerAppUITestsLaunchTests.swift */; };
+		6346740B2B4D004B006AD372 /* SentenceTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6346740A2B4D004B006AD372 /* SentenceTokenizer.swift */; };
+		6346740F2B4D00D9006AD372 /* SentenceTokenizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6346740E2B4D00D9006AD372 /* SentenceTokenizerTests.swift */; };
+		634674122B4D03C7006AD372 /* TokenizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634674112B4D03C7006AD372 /* TokenizerViewModel.swift */; };
+		634674152B4D041C006AD372 /* TokenizerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634674142B4D041C006AD372 /* TokenizerViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 		634673C52B4CD277006AD372 /* TokenizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TokenizerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634673C82B4CD277006AD372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634673CA2B4CD277006AD372 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		634673CC2B4CD277006AD372 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		634673CC2B4CD277006AD372 /* TokenizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerViewController.swift; sourceTree = "<group>"; };
 		634673CF2B4CD277006AD372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		634673D12B4CD278006AD372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		634673D42B4CD278006AD372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		634673E52B4CD278006AD372 /* TokenizerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TokenizerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634673E92B4CD278006AD372 /* TokenizerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerAppUITests.swift; sourceTree = "<group>"; };
 		634673EB2B4CD278006AD372 /* TokenizerAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6346740A2B4D004B006AD372 /* SentenceTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceTokenizer.swift; sourceTree = "<group>"; };
+		6346740E2B4D00D9006AD372 /* SentenceTokenizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceTokenizerTests.swift; sourceTree = "<group>"; };
+		634674112B4D03C7006AD372 /* TokenizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerViewModel.swift; sourceTree = "<group>"; };
+		634674142B4D041C006AD372 /* TokenizerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,17 +107,17 @@
 		634673C72B4CD277006AD372 /* TokenizerApp */ = {
 			isa = PBXGroup;
 			children = (
+				634674162B4D0E83006AD372 /* Views */,
+				634674102B4D03B5006AD372 /* ViewModels */,
+				634674092B4D002C006AD372 /* Models */,
 				634673D62B4CD278006AD372 /* Info.plist */,
 				634673FE2B4CF562006AD372 /* Supporting Files */,
 				634673FD2B4CF54F006AD372 /* Resources */,
 				634673FC2B4CF53F006AD372 /* Utilities */,
 				634673FB2B4CF536006AD372 /* Services */,
-				634673FA2B4CF52E006AD372 /* ViewModel */,
-				634673F92B4CF523006AD372 /* Model */,
 				634673F82B4CF51B006AD372 /* Application */,
 				634673C82B4CD277006AD372 /* AppDelegate.swift */,
 				634673CA2B4CD277006AD372 /* SceneDelegate.swift */,
-				634673CC2B4CD277006AD372 /* ViewController.swift */,
 				634673CE2B4CD277006AD372 /* Main.storyboard */,
 				634673D12B4CD278006AD372 /* Assets.xcassets */,
 				634673D32B4CD278006AD372 /* LaunchScreen.storyboard */,
@@ -120,6 +128,8 @@
 		634673DE2B4CD278006AD372 /* TokenizerAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				634674132B4D040B006AD372 /* ViewModels */,
+				6346740D2B4D00CF006AD372 /* Models */,
 				634673DF2B4CD278006AD372 /* TokenizerAppTests.swift */,
 			);
 			path = TokenizerAppTests;
@@ -139,20 +149,6 @@
 			children = (
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		634673F92B4CF523006AD372 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		634673FA2B4CF52E006AD372 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		634673FB2B4CF536006AD372 /* Services */ = {
@@ -181,6 +177,46 @@
 			children = (
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		634674092B4D002C006AD372 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6346740A2B4D004B006AD372 /* SentenceTokenizer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6346740D2B4D00CF006AD372 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6346740E2B4D00D9006AD372 /* SentenceTokenizerTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		634674102B4D03B5006AD372 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				634674112B4D03C7006AD372 /* TokenizerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		634674132B4D040B006AD372 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				634674142B4D041C006AD372 /* TokenizerViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		634674162B4D0E83006AD372 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				634673CC2B4CD277006AD372 /* TokenizerViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,8 +350,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				634673CD2B4CD277006AD372 /* ViewController.swift in Sources */,
+				634673CD2B4CD277006AD372 /* TokenizerViewController.swift in Sources */,
 				634673C92B4CD277006AD372 /* AppDelegate.swift in Sources */,
+				634674122B4D03C7006AD372 /* TokenizerViewModel.swift in Sources */,
+				6346740B2B4D004B006AD372 /* SentenceTokenizer.swift in Sources */,
 				634673CB2B4CD277006AD372 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6346740F2B4D00D9006AD372 /* SentenceTokenizerTests.swift in Sources */,
+				634674152B4D041C006AD372 /* TokenizerViewModelTests.swift in Sources */,
 				634673E02B4CD278006AD372 /* TokenizerAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
