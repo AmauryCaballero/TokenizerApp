@@ -81,6 +81,13 @@ class TokenizerViewController: UIViewController {
         textView.layer.borderWidth = 1.0
         return textView
     }()
+    
+    private let buttonLabel: UILabel = {
+        let label = UILabel()
+        label.text = "press to tokenize"
+        label.textColor = UIColor.gray
+        return label
+    }()
 
     
     // MARK: - Lifecycle
@@ -104,11 +111,13 @@ class TokenizerViewController: UIViewController {
         stackView.addArrangedSubview(languageButton)
 
         // Add stack view and other subviews to the view
+        view.addSubview(buttonLabel)
         view.addSubview(stackView)
         view.addSubview(tokenizeButton)
         view.addSubview(sentencesTextView)
 
         // Disable autoresizing masks for Auto Layout
+        buttonLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         sentenceTextField.translatesAutoresizingMaskIntoConstraints = false
         tokenizeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -122,6 +131,9 @@ class TokenizerViewController: UIViewController {
 
         // Set constraints
         NSLayoutConstraint.activate([
+            buttonLabel.bottomAnchor.constraint(equalTo: tokenizeButton.topAnchor, constant: -10),
+            buttonLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -184,7 +196,7 @@ class TokenizerViewController: UIViewController {
     // MARK: - Actions
     @objc private func tokenizeButtonTapped() {
         guard let text = sentenceTextField.text, !text.isEmpty else { return }
-        viewModel?.tokenize(sentence: text) // Defaulting to English for now
+        viewModel?.tokenize(sentence: text)
     }
 
     @objc private func showLanguagePicker() {
@@ -216,13 +228,16 @@ class TokenizerViewController: UIViewController {
             let keyboardHeight = keyboardSize.height
             let bottomInset = view.safeAreaInsets.bottom
             UIView.animate(withDuration: 0.3) {
-                self.tokenizeButton.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + bottomInset + -20)
+                let transformAffine =  CGAffineTransform(translationX: 0, y: -keyboardHeight + bottomInset + -20)
+                self.buttonLabel.transform = transformAffine
+                self.tokenizeButton.transform = transformAffine
             }
         }
     }
 
     @objc private func keyboardWillHide(notification: NSNotification) {
         UIView.animate(withDuration: 0.3) {
+            self.buttonLabel.transform = .identity
             self.tokenizeButton.transform = .identity
         }
     }
