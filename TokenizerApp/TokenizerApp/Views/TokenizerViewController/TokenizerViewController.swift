@@ -170,9 +170,9 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
             sentencesTextView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
             sentencesTextView.heightAnchor.constraint(equalToConstant: 200) // Initial height, adjust as needed
         ])
-    
-        
 
+        
+        addShadowToInteractiveElements()
         // Button actions
         languageButton.addTarget(self, action: #selector(showLanguagePicker), for: .touchUpInside)
         tokenizeButton.addTarget(self, action: #selector(tokenizeButtonTapped), for: .touchUpInside)
@@ -197,6 +197,14 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
                 self?.view.layoutIfNeeded() // Animate the constraint changes
             }
         }
+    }
+    
+    private func addShadowToInteractiveElements() {
+        sentenceTextField.addShadow()
+        languageButton.addShadow()
+        tokenizeButton.addShadow()
+        sentencesTextView.addShadow()
+        buttonLabel.addShadow()
     }
     
     private func setupAnimationView() {
@@ -269,6 +277,5 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
         UIView.animate(withDuration: 0.3) {
             self.buttonLabel.transform = .identity
             self.tokenizeButton.transform = .identity
-        }
     }
 }

@@ -27,6 +27,7 @@
 		63DE75D52B4E160C00130E4B /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75D42B4E160C00130E4B /* SplashViewModel.swift */; };
 		63DE75D72B4E177300130E4B /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75D62B4E177300130E4B /* UIViewControllerProtocol.swift */; };
 		63DE75D92B4E21FE00130E4B /* letters.json in Resources */ = {isa = PBXBuildFile; fileRef = 63DE75D82B4E21FE00130E4B /* letters.json */; };
+		63DE75DB2B4E28B800130E4B /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		63DE75D42B4E160C00130E4B /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		63DE75D62B4E177300130E4B /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 		63DE75D82B4E21FE00130E4B /* letters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = letters.json; sourceTree = "<group>"; };
+		63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 		634673FC2B4CF53F006AD372 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				63DE75D02B4E13EC00130E4B /* SplashViewController.swift in Sources */,
 				634674192B4D5503006AD372 /* TokenizerViewController+TextFieldDelegate.swift in Sources */,
 				63DE75D52B4E160C00130E4B /* SplashViewModel.swift in Sources */,
+				63DE75DB2B4E28B800130E4B /* UIView+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
