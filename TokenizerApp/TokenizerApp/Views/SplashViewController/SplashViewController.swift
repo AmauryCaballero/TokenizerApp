@@ -10,6 +10,8 @@ import UIKit
 import Lottie
 
 class SplashViewController: UIViewController, UIViewControllerProtocol {
+
+    
     private var viewModel: SplashViewModel?
     
     init(viewModel: SplashViewModel = SplashViewModel()) {
@@ -28,7 +30,12 @@ class SplashViewController: UIViewController, UIViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupAccessibilityIdentifier()
         
+    }
+    
+    func setupAccessibilityIdentifier() {
+        animationView?.accessibilityIdentifier = "SplashAnimationView"
     }
     
     func setupUI() {
@@ -38,16 +45,16 @@ class SplashViewController: UIViewController, UIViewControllerProtocol {
         animationView?.center = self.view.center
         animationView?.loopMode = .playOnce
         animationView?.backgroundColor = view.backgroundColor
-        animationView?.contentMode = .scaleToFill
+        animationView?.contentMode = .center
         animationView?.isHidden = false
         
         if let animationView = animationView {
             view.addSubview(animationView)
             NSLayoutConstraint.activate([
                 animationView.topAnchor.constraint(equalTo: view.topAnchor),
+                animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
                 animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
             ])
             
             animationView.play { [weak self] (finished) in
@@ -67,5 +74,11 @@ class SplashViewController: UIViewController, UIViewControllerProtocol {
             window.rootViewController = tokenizerViewController
             window.makeKeyAndVisible()
         }
+    }
+}
+
+extension SplashViewController {
+    var test_animationView: LottieAnimationView? {
+        return animationView
     }
 }

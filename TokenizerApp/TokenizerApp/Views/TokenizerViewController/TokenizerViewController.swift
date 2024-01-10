@@ -95,10 +95,20 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
 
     
     // MARK: - Lifecycle
+//    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//            
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sentenceTextField.delegate = self
         setupUI()
+        self.setupAccessibilityIdentifier()
         setupKeyboardNotifications()
         bindViewModel()
     }
@@ -106,6 +116,12 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
     // MARK: - Setup
     // Declare the sentencesTextViewHeightConstraint as an instance variable in your view controller
     var sentencesTextViewHeightConstraint: NSLayoutConstraint!
+    
+    internal func setupAccessibilityIdentifier() {
+        sentenceTextField.accessibilityIdentifier = "SentenceTextField"
+        languageButton.accessibilityIdentifier = "LanguageButton"
+        tokenizeButton.accessibilityIdentifier = "TokenizeButton"
+    }
 
     internal func setupUI() {
         view.backgroundColor = UIColor.white

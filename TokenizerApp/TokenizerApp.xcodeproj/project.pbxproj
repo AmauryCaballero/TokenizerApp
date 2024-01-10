@@ -28,6 +28,8 @@
 		63DE75D72B4E177300130E4B /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75D62B4E177300130E4B /* UIViewControllerProtocol.swift */; };
 		63DE75D92B4E21FE00130E4B /* letters.json in Resources */ = {isa = PBXBuildFile; fileRef = 63DE75D82B4E21FE00130E4B /* letters.json */; };
 		63DE75DB2B4E28B800130E4B /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */; };
+		63DE75DD2B4E37CE00130E4B /* SplashViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75DC2B4E37CE00130E4B /* SplashViewControllerTests.swift */; };
+		63DE75E02B4E398000130E4B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 63DE75DF2B4E398000130E4B /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 		63DE75D62B4E177300130E4B /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
 		63DE75D82B4E21FE00130E4B /* letters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = letters.json; sourceTree = "<group>"; };
 		63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
+		63DE75DC2B4E37CE00130E4B /* SplashViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DE75E02B4E398000130E4B /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +111,7 @@
 				634673DE2B4CD278006AD372 /* TokenizerAppTests */,
 				634673E82B4CD278006AD372 /* TokenizerAppUITests */,
 				634673C62B4CD277006AD372 /* Products */,
+				63DE75DE2B4E398000130E4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +160,7 @@
 			children = (
 				634673E92B4CD278006AD372 /* TokenizerAppUITests.swift */,
 				634673EB2B4CD278006AD372 /* TokenizerAppUITestsLaunchTests.swift */,
+				63DE75DC2B4E37CE00130E4B /* SplashViewControllerTests.swift */,
 			);
 			path = TokenizerAppUITests;
 			sourceTree = "<group>";
@@ -274,6 +280,13 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
+		63DE75DE2B4E398000130E4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +342,9 @@
 				634673E72B4CD278006AD372 /* PBXTargetDependency */,
 			);
 			name = TokenizerAppUITests;
+			packageProductDependencies = (
+				63DE75DF2B4E398000130E4B /* Lottie */,
+			);
 			productName = TokenizerAppUITests;
 			productReference = 634673E52B4CD278006AD372 /* TokenizerAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -441,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				634673EC2B4CD278006AD372 /* TokenizerAppUITestsLaunchTests.swift in Sources */,
+				63DE75DD2B4E37CE00130E4B /* SplashViewControllerTests.swift in Sources */,
 				634673EA2B4CD278006AD372 /* TokenizerAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,6 +796,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		63DE75C32B4DFC1A00130E4B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63DE75C22B4DFC1A00130E4B /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		63DE75DF2B4E398000130E4B /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63DE75C22B4DFC1A00130E4B /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;

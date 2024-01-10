@@ -9,4 +9,5 @@ import Foundation
 
 protocol UIViewControllerProtocol {
     func setupUI() -> Void
+    func setupAccessibilityIdentifier() -> Void
 }
