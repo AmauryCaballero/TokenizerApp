@@ -231,22 +231,23 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
         animationView?.isHidden = false
     }
     
-    private func updateLanguage(to languageCode: String) {
-        switch languageCode {
-        case "en":
-            languageButton.setTitle("Language: 🇺🇸", for: .normal)
-            viewModel?.updateLanguage(to: "en")
-            // Update any other relevant UI or settings for English
-        case "es":
-            languageButton.setTitle("Language: 🇪🇸", for: .normal)
-            viewModel?.updateLanguage(to: "es")
-            // Update any other relevant UI or settings for Spanish
-        default:
-            break
+    private func updateLanguage(to languageCode: Languages) {
+        do {
+            try viewModel?.updateLanguage(to: languageCode)
+            switch languageCode {
+            case .English:
+                languageButton.setTitle("Language: 🇺🇸", for: .normal)
+                // Update any other relevant UI or settings for English
+            case .Spanish:
+                languageButton.setTitle("Language: 🇪🇸", for: .normal)
+                // Update any other relevant UI or settings for Spanish
+            }
+        } catch {
+            // Handle the error here, for example, displaying an error message to the user
+            print("Error updating language: \(error.localizedDescription)")
         }
     }
 
-    
     // MARK: - Actions
     @objc private func tokenizeButtonTapped() {
         guard let text = sentenceTextField.text, !text.isEmpty else { return }
@@ -257,10 +258,10 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
         let alert = UIAlertController(title: "Select Language", message: nil, preferredStyle: .actionSheet)
 
         let englishAction = UIAlertAction(title: "English 🇺🇸", style: .default) { [weak self] _ in
-            self?.updateLanguage(to: "en")
+            self?.updateLanguage(to: Languages.English)
         }
         let spanishAction = UIAlertAction(title: "Español 🇪🇸", style: .default) { [weak self] _ in
-            self?.updateLanguage(to: "es")
+            self?.updateLanguage(to: Languages.Spanish)
         }
 
         alert.addAction(englishAction)

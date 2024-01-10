@@ -12,13 +12,13 @@ enum TokenizerError: Error {
 }
 
 class SentenceTokenizer {
-    private let tokens: [String: [String]]
+    private let tokens: [Languages: [String]]
     
-    init(tokens: [String : [String]] = ["en": ["if","and"], "es": ["si","y"]]) {
+    init(tokens: [Languages : [String]] = [Languages.English: ["if","and"], Languages.Spanish: ["si","y"]]) {
         self.tokens = tokens
     }
     
-    func tokenize(sentence: String, language: String = "en") throws -> [String] {
+    func tokenize(sentence: String, language: Languages = Languages.English) throws -> [String] {
         guard let keywords = tokens[language]?.map({ $0.lowercased() }) else {
             throw TokenizerError.unsupportedLanguage
         }

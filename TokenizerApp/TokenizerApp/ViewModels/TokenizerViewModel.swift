@@ -11,7 +11,7 @@ class TokenizerViewModel {
     
     private let tokenizer: SentenceTokenizer
     var updateView: (([String]) -> Void)?
-    private var currentLanguage: String = "en"
+    private var currentLanguage: Languages = Languages.English
     
     
     init(tokenizer: SentenceTokenizer = SentenceTokenizer()) {
@@ -27,8 +27,11 @@ class TokenizerViewModel {
         }
     }
 
-    // Add a method to update the current language
-    func updateLanguage(to language: String) {
+    func updateLanguage(to language: Languages) throws {
+        guard Languages.allCases.contains(language) else {
+            throw TokenizerError.unsupportedLanguage
+        }
+        
         currentLanguage = language
     }
 }

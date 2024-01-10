@@ -30,6 +30,8 @@
 		63DE75DB2B4E28B800130E4B /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */; };
 		63DE75DD2B4E37CE00130E4B /* SplashViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75DC2B4E37CE00130E4B /* SplashViewControllerTests.swift */; };
 		63DE75E02B4E398000130E4B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 63DE75DF2B4E398000130E4B /* Lottie */; };
+		63DE75E42B4E4B2500130E4B /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75E32B4E4B2500130E4B /* Languages.swift */; };
+		63DE75E62B4E4BF200130E4B /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE75E52B4E4BF200130E4B /* String+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		63DE75D82B4E21FE00130E4B /* letters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = letters.json; sourceTree = "<group>"; };
 		63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
 		63DE75DC2B4E37CE00130E4B /* SplashViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerTests.swift; sourceTree = "<group>"; };
+		63DE75E32B4E4B2500130E4B /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		63DE75E52B4E4BF200130E4B /* String+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				63DE75DA2B4E28B800130E4B /* UIView+Utilities.swift */,
+				63DE75E52B4E4BF200130E4B /* String+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				6346740A2B4D004B006AD372 /* SentenceTokenizer.swift */,
+				63DE75E32B4E4B2500130E4B /* Languages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -433,8 +439,10 @@
 				634673C92B4CD277006AD372 /* AppDelegate.swift in Sources */,
 				634674122B4D03C7006AD372 /* TokenizerViewModel.swift in Sources */,
 				63DE75D72B4E177300130E4B /* UIViewControllerProtocol.swift in Sources */,
+				63DE75E42B4E4B2500130E4B /* Languages.swift in Sources */,
 				6346740B2B4D004B006AD372 /* SentenceTokenizer.swift in Sources */,
 				634673CB2B4CD277006AD372 /* SceneDelegate.swift in Sources */,
+				63DE75E62B4E4BF200130E4B /* String+Utilities.swift in Sources */,
 				63DE75D02B4E13EC00130E4B /* SplashViewController.swift in Sources */,
 				634674192B4D5503006AD372 /* TokenizerViewController+TextFieldDelegate.swift in Sources */,
 				63DE75D52B4E160C00130E4B /* SplashViewModel.swift in Sources */,
