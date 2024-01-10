@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Lottie
 
-class TokenizerViewController: UIViewController {
+class TokenizerViewController: UIViewController, UIViewControllerProtocol {
     private var viewModel: TokenizerViewModel?
     
     // MARK: - Initialization
@@ -26,6 +27,9 @@ class TokenizerViewController: UIViewController {
     }
     
     // UI Elements
+    
+    private var animationView: LottieAnimationView?
+    
     private let sentenceTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .none
@@ -103,20 +107,25 @@ class TokenizerViewController: UIViewController {
     // Declare the sentencesTextViewHeightConstraint as an instance variable in your view controller
     var sentencesTextViewHeightConstraint: NSLayoutConstraint!
 
-    private func setupUI() {
+    internal func setupUI() {
         view.backgroundColor = UIColor.white
 
+        setupAnimationView()
+        
         // Add subviews to the stack view
         stackView.addArrangedSubview(sentenceTextField)
         stackView.addArrangedSubview(languageButton)
 
         // Add stack view and other subviews to the view
+        
+        view.addSubview(animationView!)
         view.addSubview(buttonLabel)
         view.addSubview(stackView)
         view.addSubview(tokenizeButton)
         view.addSubview(sentencesTextView)
 
         // Disable autoresizing masks for Auto Layout
+        animationView?.translatesAutoresizingMaskIntoConstraints = false
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         sentenceTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -129,12 +138,23 @@ class TokenizerViewController: UIViewController {
         // Set maximum width constraint for sentenceTextField
         let sentenceTextFieldMaxWidthConstraint = sentenceTextField.widthAnchor.constraint(lessThanOrEqualTo: stackView.widthAnchor, multiplier: 0.7) // Adjust the multiplier as needed
 
+        if let animationView = animationView {
+            NSLayoutConstraint.activate([
+                animationView.topAnchor.constraint(equalTo: view.topAnchor),
+                animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+            animationView.play()
+        }
+        
+        
         // Set constraints
         NSLayoutConstraint.activate([
             buttonLabel.bottomAnchor.constraint(equalTo: tokenizeButton.topAnchor, constant: -10),
             buttonLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             languageButtonWidthConstraint,
@@ -150,6 +170,8 @@ class TokenizerViewController: UIViewController {
             sentencesTextView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
             sentencesTextView.heightAnchor.constraint(equalToConstant: 200) // Initial height, adjust as needed
         ])
+    
+        
 
         // Button actions
         languageButton.addTarget(self, action: #selector(showLanguagePicker), for: .touchUpInside)
@@ -175,6 +197,14 @@ class TokenizerViewController: UIViewController {
                 self?.view.layoutIfNeeded() // Animate the constraint changes
             }
         }
+    }
+    
+    private func setupAnimationView() {
+        animationView = LottieAnimationView(name: "letters")
+        animationView?.center = self.view.center
+        animationView?.loopMode = .loop
+        animationView?.contentMode = .center
+        animationView?.isHidden = false
     }
     
     private func updateLanguage(to languageCode: String) {
