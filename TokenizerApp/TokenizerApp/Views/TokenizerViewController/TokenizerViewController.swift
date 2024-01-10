@@ -269,6 +269,7 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
                 let transformAffine =  CGAffineTransform(translationX: 0, y: -keyboardHeight + bottomInset + -20)
                 self.buttonLabel.transform = transformAffine
                 self.tokenizeButton.transform = transformAffine
+                self.animationView?.layer.opacity = 0.2
             }
         }
     }
@@ -277,5 +278,7 @@ class TokenizerViewController: UIViewController, UIViewControllerProtocol {
         UIView.animate(withDuration: 0.3) {
             self.buttonLabel.transform = .identity
             self.tokenizeButton.transform = .identity
+            self.animationView?.layer.opacity = 1
+        }
     }
 }
